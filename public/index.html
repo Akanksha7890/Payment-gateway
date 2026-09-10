@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple and secure product purchasing experience powered by Razorpay."
+    />
+    <title>Payflow — Simple, secure shopping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Payflow home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M7 3.5h7.1a4.4 4.4 0 0 1 0 8.8H7m0-8.8v17m0-8.2h6.2" />
+          </svg>
+        </span>
+        <span>payflow</span>
+      </a>
+
+      <div class="header-trust" aria-label="Secure checkout">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 3 5.5 5.6v5.3c0 4.5 2.7 8.5 6.5 10.1 3.8-1.6 6.5-5.6 6.5-10.1V5.6L12 3Z"
+          />
+          <path d="m9.2 12 1.8 1.8 3.9-4" />
+        </svg>
+        <span>Secure payments</span>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="eyebrow">Simple finds. Smooth checkout.</span>
+          <h1 id="hero-title">
+            Good products,<br /><em>without the fuss.</em>
+          </h1>
+          <p>
+            Thoughtfully selected essentials, with a checkout that is fast,
+            transparent and secure.
+          </p>
+          <a class="browse-link" href="#products">
+            Browse collection
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb orb-large"></div>
+          <div class="orb orb-small"></div>
+          <div class="checkout-card">
+            <span class="checkout-label">QUICK CHECKOUT</span>
+            <div class="checkout-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 9V7a5 5 0 0 1 10 0v2M5 9h14l-1 12H6L5 9Z" />
+              </svg>
+            </div>
+            <span class="checkout-line checkout-line-long"></span>
+            <span class="checkout-line checkout-line-short"></span>
+            <div class="checkout-button">PAY SECURELY <span>→</span></div>
+          </div>
+          <div class="verified-pill">
+            <span>✓</span>
+            Payment protected
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="products-section"
+        id="products"
+        aria-labelledby="products-title"
+      >
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Our collection</span>
+            <h2 id="products-title">Pick something you’ll love.</h2>
+          </div>
+          <p>Every order is securely processed by Razorpay.</p>
+        </div>
+
+        <div
+          id="products-status"
+          class="sr-only"
+          role="status"
+          aria-live="polite"
+        ></div>
+        <div id="product-grid" class="product-grid" aria-busy="true">
+          <article class="product-card skeleton-card" aria-hidden="true">
+            <div class="skeleton product-art"></div>
+            <div class="product-info">
+              <span class="skeleton skeleton-title"></span
+              ><span class="skeleton skeleton-copy"></span
+              ><span class="skeleton skeleton-copy short"></span
+              ><span class="skeleton skeleton-button"></span>
+            </div>
+          </article>
+          <article class="product-card skeleton-card" aria-hidden="true">
+            <div class="skeleton product-art"></div>
+            <div class="product-info">
+              <span class="skeleton skeleton-title"></span
+              ><span class="skeleton skeleton-copy"></span
+              ><span class="skeleton skeleton-copy short"></span
+              ><span class="skeleton skeleton-button"></span>
+            </div>
+          </article>
+          <article class="product-card skeleton-card" aria-hidden="true">
+            <div class="skeleton product-art"></div>
+            <div class="product-info">
+              <span class="skeleton skeleton-title"></span
+              ><span class="skeleton skeleton-copy"></span
+              ><span class="skeleton skeleton-copy short"></span
+              ><span class="skeleton skeleton-button"></span>
+            </div>
+          </article>
+        </div>
+
+        <div id="catalog-message" class="catalog-message" hidden>
+          <div class="message-icon" aria-hidden="true">!</div>
+          <h3 id="catalog-message-title">We couldn’t load the collection.</h3>
+          <p id="catalog-message-copy">
+            Please check your connection and try again.
+          </p>
+          <button id="retry-button" class="secondary-button" type="button">
+            Try again
+          </button>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Purchase benefits">
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 3 5.5 5.6v5.3c0 4.5 2.7 8.5 6.5 10.1 3.8-1.6 6.5-5.6 6.5-10.1V5.6L12 3Z"
+              />
+              <path d="m9.2 12 1.8 1.8 3.9-4" />
+            </svg>
+          </span>
+          <div>
+            <strong>Secure payment</strong><span>Protected by Razorpay</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 6h13v11H3zM16 10h3l2 3v4h-5z" />
+              <circle cx="7" cy="18" r="2" />
+              <circle cx="18" cy="18" r="2" />
+            </svg>
+          </span>
+          <div>
+            <strong>Easy purchase</strong><span>Buy in just a few clicks</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 6h16v12H4z" />
+              <path d="m4 8 8 5 8-5" />
+            </svg>
+          </span>
+          <div>
+            <strong>Helpful support</strong
+            ><span>We’re here when you need us</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand footer-brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M7 3.5h7.1a4.4 4.4 0 0 1 0 8.8H7m0-8.8v17m0-8.2h6.2" />
+          </svg>
+        </span>
+        <span>payflow</span>
+      </a>
+      <p>© <span id="year"></span> Payflow. Simple shopping, securely paid.</p>
+    </footer>
+
+    <div id="toast" class="toast" role="alert" aria-live="assertive" hidden>
+      <span id="toast-icon" class="toast-icon" aria-hidden="true">!</span>
+      <span id="toast-message"></span>
+      <button id="toast-close" type="button" aria-label="Dismiss notification">
+        ×
+      </button>
+    </div>
+
+    <div id="result-modal" class="modal" hidden>
+      <div class="modal-backdrop"></div>
+      <section
+        class="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="result-title"
+      >
+        <div id="result-icon" class="result-icon" aria-hidden="true">✓</div>
+        <span id="result-kicker" class="eyebrow">Payment confirmed</span>
+        <h2 id="result-title">You’re all set!</h2>
+        <p id="result-copy">Your payment was verified successfully.</p>
+        <div id="payment-reference" class="payment-reference" hidden>
+          <span>Payment reference</span>
+          <strong id="payment-id"></strong>
+        </div>
+        <button id="result-close" class="primary-button" type="button">
+          Continue shopping
+        </button>
+      </section>
+    </div>
+  </body>
+</html>
